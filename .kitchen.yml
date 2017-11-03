@@ -1,0 +1,35 @@
+---
+driver:
+  name:         vagrant
+  provision:    true
+
+provisioner:
+  name:         chef_zero
+
+platforms:
+  - name:       centos-6.9
+  - name:       centos-7.4
+
+
+suites:
+  - name:       default-server
+    run_list:
+      - recipe[iptables]
+      - recipe[nfs::server4]
+      - recipe[wma_nfs::create_exports]
+      - recipe[wma_nfs::iptables_create]
+    attributes: {
+      "wma" :   {
+        "nfs" : {
+          "exports" : [
+            {
+              "export" : "/usr/local/share",
+              "ip_range" : "0.0.0.0/0",
+              "options" : [ "rw", "no_root_squash", "no_subtree_check" ],
+              "writeable" : true,
+              "sync" : true
+            }
+          ]
+        }
+      }
+    }
