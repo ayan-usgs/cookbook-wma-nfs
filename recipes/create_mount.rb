@@ -9,10 +9,10 @@ node['wma']['nfs']['mounts'].each do |m|
     recursive true
   end
 
-  filesystem m['export'] do
-    fstype m['fstype']
+  mount m['export'] do
     device m['device']
-    mount m['export']
-    action %i[create enable mount]
+    fstype m['fstype']
+    options m['options']
+    action %i[mount enable]
   end
 end
