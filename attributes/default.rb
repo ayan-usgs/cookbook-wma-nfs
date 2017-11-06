@@ -3,12 +3,18 @@
 # see https://supermarket.chef.io/cookbooks/filesystem for usage
 # Example:
 # default['wma']['nfs']['mounts'] = [
-# 	{
-# 		:export => "/usr/local/share",
-# 		:device => "/dev/xvdf",
-# 		:fstype => "ext4",
-# 		:options => "rw"
-# 	}
+# 	"wma" :   {
+#     "nfs" : {
+#       "mounts" : [
+#         {
+#           "export" : "/usr/local/share/nfs",
+#           "device" : "192.168.33.53:/usr/local/share",
+#           "fstype" : "nfs",
+#           "options" : "rw"
+#         }
+#       ]
+#     }
+#   }
 # ]
 
 default['wma']['nfs']['mounts'] = []
