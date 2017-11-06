@@ -1,6 +1,8 @@
 WMA NFS
 ---
 
+[![Build Status](https://travis-ci.org/USGS-CIDA/cookbook-wma-nfs.svg?branch=master)](https://travis-ci.org/USGS-CIDA/cookbook-wma-nfs)
+
 Description
 -----------
 
