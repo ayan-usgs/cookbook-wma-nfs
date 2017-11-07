@@ -28,6 +28,10 @@ Server:
 * `['wma']['nfs']['iptables']`
   - A hash defining which ports to open in IPTables.
 
+Optional, can be used by both
+* `['wma']['file']['mount']`
+  - A hash defining a volume that should be mounted onto the filesystem.
+
 ## Usage
 
 To create NFS mounts on a server, add the following to a runlist:

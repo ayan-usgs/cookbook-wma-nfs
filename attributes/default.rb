@@ -71,3 +71,12 @@ default['wma']['nfs']['iptables'] = {
     '-A FWR -p udp -m udp --dport 32769 -j ACCEPT'
   ]
 }
+
+# When using the mount_device recipe, these attributes allow a device that is
+# supposedly available to the system to be mounted
+#
+# Example:
+# default['wma']['file']['mount'] = {
+#   'base_dir' => '/usr/local/share',
+#   'volume' => '/dev/xvdf'
+# }
