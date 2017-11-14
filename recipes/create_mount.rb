@@ -5,8 +5,15 @@
 #
 
 node['wma']['nfs']['mounts'].each do |m|
+  owner = m.attribute?(:owner) ? m['owner'] : 'root'
+  group = m.attribute?(:group) ? m['group'] : 'root'
+  mode = m.attribute?(:mode) ? m['mode'] : '0o777'
+
   directory m['export'] do
     recursive true
+    owner owner
+    group group
+    mode mode
   end
 
   mount m['export'] do

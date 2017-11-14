@@ -82,7 +82,10 @@ An example attribute set for a client may look like:
           "export" : "/usr/local/share/nfs",
           "device" : "192.168.33.53:/usr/local/share",
           "fstype" : "nfs",
-          "options" : "rw"
+          "options" : "rw",
+          "owner" : "root",
+          "group" : "root",
+          "mode" : "0o777"
         }
       ]
     }

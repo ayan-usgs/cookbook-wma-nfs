@@ -1,6 +1,7 @@
 ---
 driver:
   name:         vagrant
+  provision: true
 
 provisioner:
   name:         chef_zero
@@ -12,14 +13,14 @@ platforms:
 
 suites:
   - name:       default-server
+    driver_config:
+        network:
+          - ["private_network", { ip: "192.168.33.53" }]
     run_list:
       - recipe[iptables]
       - recipe[nfs::server]
       - recipe[wma_nfs::create_exports]
       - recipe[wma_nfs::iptables_create]
-    driver_config:
-      network:
-        - ['private_network', {ip: '192.168.33.53'}]
     attributes: {
       "wma" :   {
         "nfs" : {
@@ -40,7 +41,7 @@ suites:
       - recipe[iptables]
       - recipe[nfs::client4]
       - recipe[wma_nfs::create_mount]
-    driver_config:
+    driver:
       network:
         - ['private_network', {ip: '192.168.33.63'}]
     attributes: {
@@ -51,7 +52,8 @@ suites:
               "export" : "/usr/local/share/nfs",
               "device" : "192.168.33.53:/usr/local/share",
               "fstype" : "nfs",
-              "options" : "rw"
+              "options" : ["rw","soft","intr"]
+
             }
           ]
         }
