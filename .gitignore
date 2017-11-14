@@ -1,5 +1,5 @@
 .vagrant
-Berksfile.lock
+
 *~
 *#
 .#*
@@ -19,3 +19,4 @@ bin/*
 metadata.json
 inspec.lock
 .DS_Store
+Berksfile.lock
