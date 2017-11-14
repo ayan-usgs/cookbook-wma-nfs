@@ -21,5 +21,6 @@ node['wma']['nfs']['mounts'].each do |m|
     fstype m['fstype']
     options m['options']
     action %i[mount enable]
+    notifies :create, "directory[#{m['export']}]", :immediately
   end
 end
