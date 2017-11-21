@@ -26,7 +26,8 @@ suites:
         "nfs" : {
           "exports" : [
             {
-              "export" : "/usr/local/share",
+              "export" : "/usr/local/share/test",
+              "create": true,
               "ip_range" : "*",
               "options" : [ "rw", "nohide", "insecure", "async", "no_root_squash", "no_subtree_check" ],
               "writeable" : true,

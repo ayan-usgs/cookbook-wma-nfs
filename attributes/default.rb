@@ -28,6 +28,7 @@ default['wma']['nfs']['mounts'] = []
 # default['wma']['nfs']['exports'] = [
 #   {
 #     export: '/usr/local/share',
+#     create: true,
 #     ip_range: '0.0.0.0/0',
 #     options: %w[rw no_root_squash no_subtree_check],
 #     writeable: true,
