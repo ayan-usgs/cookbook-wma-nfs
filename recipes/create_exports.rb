@@ -5,7 +5,8 @@
 #
 
 node['wma']['nfs']['exports'].each do |e|
-  directory e['export'] do
+  directory "Create directory #{e['export']}" do
+    path e['export']
     recursive true
     ignore_failure true
     only_if { e.attribute?(:create) && e['create'] }
